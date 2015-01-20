@@ -4,14 +4,11 @@
     "cordova_name": "CameraPlugin",
     "description": "Provide information about the camera such weather the device suports auto-focus.",
     "license": "Comercial",
-    "repo": "https://github.com/wildabeast/BarcodeScanner",
-    "issue": "https://github.com/wildabeast/BarcodeScanner/issues",
+    "repo": "https://github.com/andr3medeiros/CameraPlugin",
+    "issue": "https://github.com/andr3medeiros/CameraPlugin/issues",
     "platforms": [
         "ios",
-        "android",
-        "windows8",
-        "wp8",
-        "browser"
+        "android"
     ],
     "engines": [
         {
