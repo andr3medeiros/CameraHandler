@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="br.com.trier.cameraplugin"
+    version="2.0.1">
+
+    <name>CameraPlugin</name>
+    <description>Provide information about the camera such weather the device suports auto-focus.</description>
+    <license>Comercial</license>
+
+    <repo>https://github.com/andr3medeiros/CameraPlugin</repo>
+    <issue>https://github.com/andr3medeiros/CameraPlugin/issues</issue> 
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>    
+
+    <js-module src="www/cameraplugin.js" name="CameraPlugin">
+        <clobbers target="br.com.trier.cameraplugin" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VerifyAutoFocus">
+                <param name="android-package" value="br.com.trier.cameraplugin.CameraPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/br/com/trier/cameraplugin/CameraPlugin.java" target-dir="src/android/br/com/trier/cameraplugin" />
+    </platform>
+</plugin>
