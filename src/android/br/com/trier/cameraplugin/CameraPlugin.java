@@ -8,6 +8,10 @@
  */
 package br.com.trier.cameraplugin;
 
+import org.json.JSONArray;
+
+import android.content.pm.PackageManager;
+
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
@@ -45,12 +49,22 @@ public class CameraPlugin extends CordovaPlugin {
         this.callbackContext = callbackContext;
 
         if (action.equals(VERIFY_AUTO_FOCUS)) {
-			PluginResult result = new PluginResult(PluginResult.Status.OK, getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_AUTOFOCUS));
-            this.callbackContext.sendPluginResult(result);
+			isAvailable();
+			
             return true;
         }
 
         // Returning false results in a "MethodNotFound" error.
         return true;
+    }
+	
+	private void isAvailable () {
+        cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                PluginResult result = new PluginResult(PluginResult.Status.OK, cordova.getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_AUTOFOCUS));
+                this.callbackContext.sendPluginResult(result);
+            }
+        });
     }
 }

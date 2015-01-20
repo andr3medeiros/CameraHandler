@@ -5,47 +5,31 @@
  * Copyright (c) Trier Sistemas 2014
  */
 
-    var TrierPlugin = function (require, exports, module) {
+var TrierPlugin = function (require, exports, module) {
 
-        var exec = require("cordova/exec");
+	var exec = require("cordova/exec");
 
-        /**
-         * Constructor.
-         *
-         * @returns {CameraPlugin}
-         */
-        function CameraPlugin() {
+	/**
+	 * Constructor.
+	 *
+	 * @returns {CameraPlugin}
+	 */
+	function CameraPlugin() {}
 
-        /**
-         * Asks weather device camera supports auo-focus
-         *
-         * @param {Function} successCallback This function will recieve either true or false.
-         * @param {Function} errorCallback
-         */
-        CameraPlugin.prototype.isAutoFocus = function (successCallback, errorCallback) {
-            if (errorCallback == null) {
-                errorCallback = function () {
-                };
-            }
+	/**
+	 * Asks weather device camera supports auto-focus
+	 *
+	 * @param {Function} successCallback This function will recieve either true or false.
+	 * @param {Function} errorCallback
+	 */
+	CameraPlugin.prototype.isAutoFocus = function (callbackSuccess,callbackError) {
+		return exec(callbackSuccess, callbackError, 'CameraPlugin', 'verify.auto.focus', []);
+	};
 
-            if (typeof errorCallback != "function") {
-                console.log("CameraPlugin.scan failure: failure parameter not a function");
-                return;
-            }
+	var CameraPlugin = new CameraPlugin();
+	module.exports = CameraPlugin;
+}
 
-            if (typeof successCallback != "function") {
-                console.log("CameraPlugin.scan failure: success callback parameter must be a function");
-                return;
-            }
+TrierPlugin(require, exports, module);
 
-            exec(successCallback, errorCallback, 'CameraPlugin', 'verify.auto.focus', []);
-        };
-
-        var CameraPlugin = new CameraPlugin();
-        module.exports = CameraPlugin;
-
-    }
-
-    TrierPlugin(require, exports, module);
-
-    cordova.define("cordova/plugin/CameraPlugin", TrierPlugin);
+cordova.define("cordova/plugin/CameraPlugin", TrierPlugin);
