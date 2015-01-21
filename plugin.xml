@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="br.com.trier.cameraplugin"
+    id="br.com.triersistemas.plugins.cordova.camera"
     version="1.0.0">
 
-    <name>CameraPlugin</name>
-    <description>Provide information about the camera such weather the device suports auto-focus.</description>
+    <name>Camera</name>
+    <description>Provide information about the camera (currentily only weater device suports auto-focus or not).</description>
     <license>Comercial</license>
 
-    <repo>https://github.com/andr3medeiros/CameraPlugin</repo>
-    <issue>https://github.com/andr3medeiros/CameraPlugin/issues</issue> 
+    <repo>https://github.com/andr3medeiros/Camera</repo>
+    <issue>https://github.com/andr3medeiros/Camera/issues</issue> 
     
     <engines>
         <engine name="cordova" version=">=3.0.0" />
     </engines>    
 
-    <js-module src="www/cameraplugin.js" name="CameraPlugin">
-        <clobbers target="br.com.trier.cameraplugin" />
+    <js-module src="www/camera.js" name="Camera">
+        <clobbers target="br.com.triersistemas.plugins.cordova.camera" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="CameraPlugin">
-                <param name="android-package" value="br.com.trier.cameraplugin.CameraPlugin"/>
+            <feature name="Camera">
+                <param name="android-package" value="br.com.triersistemas.plugins.cordova.camera.Camera"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/br/com/trier/cameraplugin/CameraPlugin.java" target-dir="src/br/com/trier/cameraplugin" />
+        <source-file src="src/android/br/com/triersistemas/plugins/cordova/camera/Camera.java" target-dir="src/br/com/triersistemas/plugins/cordova/camera" />
+    </platform>
+	
+	<!-- Windows Phone 8 -->
+	<platform name="wp8">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="Camera">
+                <param name="wp-package" value="Camera"/>
+            </feature>
+        </config-file>
+
+        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+            <Capability Name="ID_CAP_ISV_CAMERA" />
+        </config-file>
+
+        <source-file src="src/wp8/Camera.cs" />
     </platform>
 </plugin>

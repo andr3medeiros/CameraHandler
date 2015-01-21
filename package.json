@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "name": "br.com.trier.cameraplugin",
+    "name": "br.com.triersistemas.camerainfo",
     "cordova_name": "CameraPlugin",
     "description": "Provide information about the camera such weather the device suports auto-focus.",
     "license": "Comercial",

@@ -12,9 +12,9 @@ var TrierPlugin = function (require, exports, module) {
 	/**
 	 * Constructor.
 	 *
-	 * @returns {CameraPlugin}
+	 * @returns {Camera}
 	 */
-	function CameraPlugin() {}
+	function Camera() {}
 
 	/**
 	 * Asks weather device camera supports auto-focus
@@ -22,14 +22,14 @@ var TrierPlugin = function (require, exports, module) {
 	 * @param {Function} successCallback This function will recieve either true or false.
 	 * @param {Function} errorCallback
 	 */
-	CameraPlugin.prototype.isAutoFocus = function (callbackSuccess,callbackError) {
-		return exec(callbackSuccess, callbackError, 'CameraPlugin', 'verify.auto.focus', []);
+	Camera.prototype.isAutoFocus = function (callbackSuccess,callbackError) {
+		return exec(callbackSuccess, callbackError, 'Camera', 'verify.auto.focus', []);
 	};
 
-	var CameraPlugin = new CameraPlugin();
-	module.exports = CameraPlugin;
+	var Camera = new Camera();
+	module.exports = Camera;
 }
 
 TrierPlugin(require, exports, module);
 
-cordova.define("cordova/plugin/CameraPlugin", TrierPlugin);
+cordova.define("cordova/plugin/Camera", TrierPlugin);

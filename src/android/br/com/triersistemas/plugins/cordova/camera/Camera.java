@@ -6,7 +6,7 @@
  * Copyright (c) 2011, IBM Corporation
  * Copyright (c) 2013, Maciej Nux Jaros
  */
-package br.com.trier.cameraplugin;
+package br.com.triersistemas.plugins.cordova.camera;
 
 import org.json.JSONArray;
 
@@ -16,16 +16,16 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
 
-public class CameraPlugin extends CordovaPlugin {
+public class Camera extends CordovaPlugin {
     private static final String VERIFY_AUTO_FOCUS = "verify.auto.focus";
-    private static final String LOG_TAG = "CameraPlugin";
+    private static final String LOG_TAG = "Camera";
 
     private CallbackContext callbackContext;
 
     /**
      * Constructor.
      */
-    public CameraPlugin() {
+    public Camera() {
     }
 
     /**

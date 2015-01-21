@@ -18,9 +18,14 @@ The plugin creates the object `cordova/plugin/CameraPlugin` with the method `isA
 
 A full example could be:
 ```
-   if(!cordova.plugins.CameraPlugin.isAutoFocus()) {
-		alert('This device does not support auto-focus feature.');
-   }
+   br.com.triersistemas.camerainfo.isAutoFocus(function(bool) {
+		if(bool)
+			alert('Esse dispositivo suporta o recurso de auto foco da câmera.');
+		else
+			alert('Esse dispositivo não suporta o recurso de auto foco da câmera.');
+	},function(error) {
+		alert('Esse dispositivo não suporta o recurso de auto foco da câmera.');
+	});
 ```
 
 ## Licence ##
