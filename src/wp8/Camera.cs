@@ -9,7 +9,7 @@
     To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604  
    
 */ 
-namespace WPCordovaClassLib.Cordova.Commands
+namespace Cordova.Extension.Commands
 { 
     using Microsoft.Devices; 
 
