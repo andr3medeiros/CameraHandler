@@ -1,1 +1,1 @@
-{"source":{"type":"registry","id":"br.com.trier.cameraplugin"}}
+{"source":{"type":"git","url":"https://github.com/andr3medeiros/CameraPlugin.git","subdir":"."}}

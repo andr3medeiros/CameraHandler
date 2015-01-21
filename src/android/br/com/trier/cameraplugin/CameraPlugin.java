@@ -63,7 +63,7 @@ public class CameraPlugin extends CordovaPlugin {
             @Override
             public void run() {
                 PluginResult result = new PluginResult(PluginResult.Status.OK, cordova.getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_AUTOFOCUS));
-                this.callbackContext.sendPluginResult(result);
+                callbackContext.sendPluginResult(result);
             }
         });
     }

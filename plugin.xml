@@ -21,11 +21,11 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="VerifyAutoFocus">
+            <feature name="CameraPlugin">
                 <param name="android-package" value="br.com.trier.cameraplugin.CameraPlugin"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/br/com/trier/cameraplugin/CameraPlugin.java" target-dir="src/android/br/com/trier/cameraplugin" />
+        <source-file src="src/android/br/com/trier/cameraplugin/CameraPlugin.java" target-dir="src/br/com/trier/cameraplugin" />
     </platform>
 </plugin>
