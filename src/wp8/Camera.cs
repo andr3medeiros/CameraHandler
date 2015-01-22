@@ -9,15 +9,15 @@
     To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604  
    
 */ 
-namespace Cordova.Extension.Commands
+namespace WPCordovaClassLib.Cordova.Commands
 { 
     using Microsoft.Devices; 
 
-    public class CameraInfo : BaseCommand 
+    public class Camera : BaseCommand 
     { 
         PhotoCamera cam;
 
-        public CameraInfo() {
+        public Camera() {
             cam = new Microsoft.Devices.PhotoCamera(CameraType.Primary);
         }
 
@@ -46,5 +46,14 @@ namespace Cordova.Extension.Commands
         {
             this.isAutoFocus = isAutoFocus;
         } 
+
+        /// <summary>
+        /// Gets a value indicating whether auto-focus is supported.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if isAutoFocus; otherwise, <c>false</c>.
+        /// </value>
+        [DataMember(Name = "isAutoFocus")]
+        public bool isAutoFocus { get; private set; }
     }
 } 

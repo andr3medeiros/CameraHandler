@@ -1,23 +1,19 @@
-/**
- * PhoneGap is available under *either* the terms of the modified BSD license *or* the
- * MIT License (2008). See http://opensource.org/licenses/alphabetical for full text.
- *
- * Copyright (c) Matt Kane 2010
- * Copyright (c) 2011, IBM Corporation
- * Copyright (c) 2013, Maciej Nux Jaros
- */
 package br.com.triersistemas.plugins.cordova.camera;
 
+import java.io.IOException;
+import java.io.StringWriter;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 
 import android.content.pm.PackageManager;
-
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.PluginResult;
+import android.util.JsonWriter;
+import android.util.Log;
 
 public class Camera extends CordovaPlugin {
-    private static final String VERIFY_AUTO_FOCUS = "verify.auto.focus";
+    private static final String IS_AUTO_FOCUS = "isAutoFocus";
     private static final String LOG_TAG = "Camera";
 
     private CallbackContext callbackContext;
@@ -48,21 +44,44 @@ public class Camera extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         this.callbackContext = callbackContext;
 
-        if (action.equals(VERIFY_AUTO_FOCUS)) {
-			isAvailable();
-			
+        if (action.equals(IS_AUTO_FOCUS)) {
+            isAutoFocus();
+            
             return true;
         }
 
         // Returning false results in a "MethodNotFound" error.
         return true;
     }
-	
-	private void isAvailable () {
+    
+    private void isAutoFocus () {
         cordova.getThreadPool().execute(new Runnable() {
             @Override
             public void run() {
-                PluginResult result = new PluginResult(PluginResult.Status.OK, cordova.getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_AUTOFOCUS));
+                
+                // TODO: exportar para um método quando houver mais actions
+                StringWriter out = new StringWriter();
+                JsonWriter writer = new JsonWriter(out);
+                PluginResult result;
+                
+                try {
+                    
+                    writer.beginObject().name("isAutoFocus").value(cordova.getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_AUTOFOCUS)).endObject();
+                    result = new PluginResult(PluginResult.Status.OK, out.toString());
+                    
+                } catch (IOException e) {
+                    result = new PluginResult(PluginResult.Status.ERROR, e.getMessage());
+                    Log.e(LOG_TAG, e.getMessage());
+                } finally {
+                    
+                    try {
+                        writer.close();
+                    } catch (IOException e) {
+                        Log.e(LOG_TAG, e.getMessage());
+                    }
+                    
+                }
+                
                 callbackContext.sendPluginResult(result);
             }
         });
