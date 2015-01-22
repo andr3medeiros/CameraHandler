@@ -13,11 +13,11 @@ namespace WPCordovaClassLib.Cordova.Commands
 { 
     using Microsoft.Devices; 
 
-    public class Camera : BaseCommand 
+    public class CameraHandler : BaseCommand 
     { 
         PhotoCamera cam;
 
-        public Camera() {
+        public CameraHandler() {
             cam = new Microsoft.Devices.PhotoCamera(CameraType.Primary);
         }
 

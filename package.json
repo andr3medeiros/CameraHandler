@@ -1,11 +1,11 @@
 {
     "version": "1.0.0",
     "name": "br.com.triersistemas.plugins.cordova.camera",
-    "cordova_name": "Camera",
+    "cordova_name": "CameraHandler",
     "description": "Provide information about the camera (currentily only weater device suports auto-focus or not).",
     "license": "Comercial",
-    "repo": "https://github.com/andr3medeiros/Camera",
-    "issue": "https://github.com/andr3medeiros/Camera/issues",
+    "repo": "https://github.com/andr3medeiros/CameraHandler",
+    "issue": "https://github.com/andr3medeiros/CameraHandler/issues",
     "platforms": [
         "android",
         "wp8"

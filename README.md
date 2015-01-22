@@ -9,7 +9,7 @@ Cross-platform CameraPlugin for Cordova / PhoneGap.
 - wp8 (Windows Phone)
 
 ## Using the plugin ##
-The plugin creates the object `cordova/plugin/Camera` with the method `isAutoFocus()`. 
+The plugin creates the object `cordova/plugin/CameraHandler` with the method `isAutoFocus()`. 
 
 A full example could be:
 ```

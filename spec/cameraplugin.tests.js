@@ -28,7 +28,7 @@ describe('cordova.require object should exist', function () {
 	});
 
 	it("CameraPlugin plugin should exist", function() {
-        trierplugin = cordova.require("cordova/plugin/Camera")
+        trierplugin = cordova.require("cordova/plugin/CameraHandler")
         expect(trierplugin).toBeDefined();
 		expect(typeof trierplugin == 'object').toBe(true);
 	});

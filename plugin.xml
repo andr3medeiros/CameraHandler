@@ -3,38 +3,38 @@
     id="br.com.triersistemas.plugins.cordova.camera"
     version="1.0.0">
 
-    <name>Camera</name>
+    <name>CameraHandler</name>
     <description>Provide information about the camera (currentily only weater device suports auto-focus or not).</description>
     <license>Comercial</license>
 
-    <repo>https://github.com/andr3medeiros/Camera</repo>
-    <issue>https://github.com/andr3medeiros/Camera/issues</issue> 
+    <repo>https://github.com/andr3medeiros/CameraHandler</repo>
+    <issue>https://github.com/andr3medeiros/CameraHandler/issues</issue> 
     
     <engines>
         <engine name="cordova" version=">=3.0.0" />
     </engines>    
 
-    <js-module src="www/camera.js" name="Camera">
+    <js-module src="www/camera.js" name="CameraHandler">
         <clobbers target="br.com.triersistemas.plugins.cordova.camera" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Camera">
-                <param name="android-package" value="br.com.triersistemas.plugins.cordova.camera.Camera"/>
+            <feature name="CameraHandler">
+                <param name="android-package" value="br.com.triersistemas.plugins.cordova.camera.CameraHandler"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/br/com/triersistemas/plugins/cordova/camera/Camera.java" target-dir="src/br/com/triersistemas/plugins/cordova/camera" />
+        <source-file src="src/android/br/com/triersistemas/plugins/cordova/camera/CameraHandler.java" target-dir="src/br/com/triersistemas/plugins/cordova/camera" />
     </platform>
 	
 	<!-- Windows Phone 8 -->
 	<platform name="wp8">
 
         <config-file target="config.xml" parent="/*">
-            <feature name="Camera">
-                <param name="wp-package" value="Camera"/>
+            <feature name="CameraHandler">
+                <param name="wp-package" value="CameraHandler"/>
             </feature>
         </config-file>
 
@@ -42,6 +42,6 @@
             <Capability Name="ID_CAP_ISV_CAMERA" />
         </config-file>
 
-        <source-file src="src/wp8/Camera.cs" />
+        <source-file src="src/wp8/CameraHandler.cs" />
     </platform>
 </plugin>

@@ -12,16 +12,16 @@ import android.content.pm.PackageManager;
 import android.util.JsonWriter;
 import android.util.Log;
 
-public class Camera extends CordovaPlugin {
+public class CameraHandler extends CordovaPlugin {
     private static final String IS_AUTO_FOCUS = "isAutoFocus";
-    private static final String LOG_TAG = "Camera";
+    private static final String LOG_TAG = "CameraHandler";
 
     private CallbackContext callbackContext;
 
     /**
      * Constructor.
      */
-    public Camera() {
+    public CameraHandler() {
     }
 
     /**
