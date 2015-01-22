@@ -23,11 +23,11 @@ var TrierPlugin = function (require, exports, module) {
 	 * @param {Function} errorCallback
 	 */
 	Camera.prototype.isAutoFocus = function (callbackSuccess,callbackError) {
-		return exec(callbackSuccess, callbackError, 'Camera', 'verify.auto.focus', []);
+		return exec(callbackSuccess, callbackError, 'br.com.triersistemas.plugins.cordova.camera.Camera', 'isAutoFocus', []);
 	};
 
-	var Camera = new Camera();
-	module.exports = Camera;
+	var camera = new Camera();
+	module.exports = camera;
 }
 
 TrierPlugin(require, exports, module);
